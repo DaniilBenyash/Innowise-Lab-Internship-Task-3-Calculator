@@ -1,0 +1,12 @@
+[data-theme="light"] {
+    --color-1: #0A2647;
+    --color-2: #144272;
+    --color-3: #205295;
+    --color-4: #2C74B3;
+}
+[data-theme="dark"] {
+    --color-1: #2C74B3;
+    --color-2: #205295;
+    --color-3: #144272;
+    --color-4: #0A2647;
+}

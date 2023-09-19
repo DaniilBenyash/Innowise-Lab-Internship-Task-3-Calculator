@@ -4,50 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/css/style.css">
 </head>
-<body>
+<body data-theme="dark" id="theme">
     <article class="calculator">
-        <input type="text">
+        <button id="calculator__button-theme">Switch theme</button>
+        <div class="output">
+            <div class="previous-output">
+                <div id="previous-operand"></div>
+                <div id="operation"></div>
+            </div>
+            <div id="current-operand"></div>
+            <button class="back">Back</button>
+        </div>
         <div class="calculator__buttons">
             <section class="calculator__left-section">
-                <button>mc</button>
-                <button>m+</button>
-                <button>m-</button>
-                <button>mr</button>
-                <button>x2</button>
-                <button>x3</button>
-                <button>xy</button>
-                <button>10x</button>
-                <button>1/x</button>
-                <button>2cx</button>
-                <button>3cx</button>
-                <button>ycx</button>
-                <button>n!</button>
+                <button class="high-operation">mc</button>
+                <button class="high-operation">m+</button>
+                <button class="high-operation">m-</button>
+                <button class="high-operation">mr</button>
+                <button class="high-operation">x&#178;</button>
+                <button class="high-operation">x&#179;</button>
+                <button class="operation">xy</button>
+                <button class="high-operation">10x</button>
+                <button class="high-operation">1/x</button>
+                <button class="high-operation">&#178;&#8730;x</button>
+                <button class="high-operation">&#179;&#8730;x</button>
+                <button class="operation">y&#8730;x</button>
+                <button class="calculator__factorial high-operation">n!</button>
+                <button class="high-operation calculator__ms">ms</button>
             </section>
             <section class="calculator__right-section">
-                <button>AC</button>
-                <button>+/-</button>
-                <button>%</button>
-                <button id="calculator__button_orange">/</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button id="calculator__button_orange">*</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button id="calculator__button_orange">-</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button id="calculator__button_orange">+</button>
-                <button>0</button>
-                <button>.</button>
-                <button id="calculator__button_orange">=</button>
+                <button id="all-clear">AC</button>
+                <button class="high-operation">&#177</button>
+                <button class="high-operation">%</button>
+                <button class="calculator__button_orange operation">÷</button>
+                <button class="number">7</button>
+                <button class="number">8</button>
+                <button class="number">9</button>
+                <button class="calculator__button_orange operation">*</button>
+                <button class="number">4</button>
+                <button class="number">5</button>
+                <button class="number">6</button>
+                <button class="calculator__button_orange operation">-</button>
+                <button class="number">1</button>
+                <button class="number">2</button>
+                <button class="number">3</button>
+                <button class="calculator__button_orange operation">+</button>
+                <button class="calculator__double-button number">0</button>
+                <button class="number">.</button>
+                <button id="equals" class="calculator__button_orange">=</button>
             </section>  
         </div>
     </article>
-    <script src="/src/index.js"></script>
+    <script src="/src/scripts/index.js"></script>
+    <script src="/src/scripts/switchTheme.js"></script>
 </body>
 </html>

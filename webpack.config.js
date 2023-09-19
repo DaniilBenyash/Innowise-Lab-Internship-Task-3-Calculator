@@ -10,7 +10,7 @@ module.exports = {
   mode,
   target,
   devtool,
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: path.resolve(__dirname, 'src/scripts', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,

@@ -1,0 +1,153 @@
+@import url(/src/css/_variables.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    color: #EEEEEE;
+    font-size: 25px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200px;
+    background-color: var(--color-4);
+}
+.calculator{
+    width: 480px;
+}
+.output{
+    position: relative;
+    display: flex;
+    grid-column: 1 / -1;
+    background: var(--color-1);
+    width: 100%;
+    height: 70px;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.previous-output{
+    display: flex;
+    flex-direction: row;
+}
+.previous-output div{
+    font-size: 20px;
+    color: rgb(238, 238, 238, 0.6);
+}
+#current-operand{
+    font-size: 30px;
+}
+.calculator__buttons{
+    display: flex;
+    width: 100%;
+}
+.calculator__buttons button{
+    border: 1px solid #EEEEEE;
+    width: 60px;
+    height: 50px;
+    box-sizing: border-box;
+}
+.calculator__buttons button:hover{
+    cursor: pointer;
+}
+.calculator__left-section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, max-content);
+}
+.calculator__left-section button{
+    background: var(--color-1);
+}
+.calculator__left-section button:hover{
+    background: rgb(40, 46, 56, 0.7);
+}
+.calculator__left-section button:active{
+    background: rgb(40, 46, 56, 0.3);
+}
+.calculator__right-section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, max-content);
+}
+.calculator__right-section button{
+    background: var(--color-2);
+}
+.calculator__right-section button:hover{
+    background: rgb(57, 62, 70, 0.7);
+}
+.calculator__right-section button:active{
+    background: rgb(57, 62, 70, 0.3);
+}
+.calculator__right-section .calculator__button_orange{
+    background: #fa991c;
+}
+.calculator__right-section .calculator__button_orange:hover{
+    background: rgb(250, 153, 28, 0.7);
+}
+.calculator__right-section .calculator__button_orange:active{
+    background: rgb(250, 153, 28, 0.3);
+}
+.calculator__right-section .calculator__double-button{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+}
+.calculator__left-section .calculator__factorial{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    width: 100%;
+}
+.calculator__left-section .calculator__ms{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    width: 100%;
+}
+.back{
+    position:absolute;
+    color: #EEEEEE;
+    left: 10px;
+    background: var(--color-3);
+    border: none;
+    cursor: pointer;
+}
+.back:hover{
+    background: rgba(162, 164, 167, 0.7);
+}
+.back:active{
+    background: rgba(215, 217, 219, 0.3);
+}
+#calculator__button-theme{
+    color: #EEEEEE;
+    background-color: var(--color-3);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+#calculator__button-theme:hover{
+    background: rgba(162, 164, 167, 0.7);
+}
+#calculator__button-theme:active{
+    background: rgba(100, 106, 112, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+    body{
+        padding-top: 30px;
+    }
+    .calculator{
+        width: 300px;
+    }
+    .calculator__buttons{
+        flex-direction: column-reverse;
+    }
+    .calculator__buttons button {
+        width: 100%;
+    }
+}
