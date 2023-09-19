@@ -6,7 +6,7 @@
 
 ```bash
 npm install
-npm build-prod
+npm run build-prod
 ```
 
 ## Description
