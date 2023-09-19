@@ -1,4 +1,3 @@
-// import '../index.html';
 import '../css/style.css';
 import calculator from './calculator';
 import AppendNumber from './operations/appendNumber';
@@ -6,6 +5,8 @@ import ChooseOperation from './operations/chooseOperation';
 import HighOperation from './operations/highOperation';
 import GetAnswer from './operations/getAnswer';
 import AllClear from './operations/allClear';
+// eslint-disable-next-line no-unused-vars
+const theme = require('./switchTheme');
 
 const numberButtons = document.querySelectorAll('.number');
 const operationButtons = document.querySelectorAll('.operation');
