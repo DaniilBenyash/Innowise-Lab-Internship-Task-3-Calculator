@@ -1,6 +1,10 @@
 export class MR {
+  constructor(key) {
+    this.key = key;
+  }
+
   execute() {
-    this.number = sessionStorage.getItem('memory');
+    this.number = sessionStorage.getItem(this.key);
     if (this.number === '') {
       return {};
     }

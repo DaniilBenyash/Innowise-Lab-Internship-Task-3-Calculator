@@ -1,10 +1,11 @@
 export class MS {
-  constructor(number) {
+  constructor(number, key) {
     this.number = number;
+    this.key = key;
   }
 
   execute() {
-    sessionStorage.setItem('memory', this.number);
+    sessionStorage.setItem(this.key, this.number);
     return { leftOperand: this.number };
   }
 

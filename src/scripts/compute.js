@@ -25,6 +25,8 @@ import { calculator } from './calculator';
 export function compute(operands) {
   const leftOperand = parseFloat(operands.leftOperand);
   const rightOperand = parseFloat(operands.rightOperand);
+  const key = 'memory';
+
   switch (operands.operationOperand) {
     case '+':
       calculator.setCommand(new AddCommand(leftOperand, rightOperand));
@@ -87,22 +89,22 @@ export function compute(operands) {
       calculator.executeCommand();
       break;
     case 'mc':
-      mc();
+      mc(key);
       break;
     case 'mr':
-      calculator.setCommand(new MR());
+      calculator.setCommand(new MR(key));
       calculator.executeCommand();
       break;
     case 'ms':
-      calculator.setCommand(new MS(leftOperand));
+      calculator.setCommand(new MS(leftOperand, key));
       calculator.executeCommand();
       break;
     case 'm+':
-      calculator.setCommand(new MPlus(leftOperand));
+      calculator.setCommand(new MPlus(leftOperand, key));
       calculator.executeCommand();
       break;
     case 'm-':
-      calculator.setCommand(new MMinus(leftOperand));
+      calculator.setCommand(new MMinus(leftOperand, key));
       calculator.executeCommand();
       break;
     default:

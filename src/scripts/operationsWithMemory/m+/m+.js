@@ -1,6 +1,7 @@
 export class MPlus {
-  constructor(number) {
+  constructor(number, key) {
     this.number = number;
+    this.key = key;
   }
 
   execute() {

@@ -1,3 +1,3 @@
-export function mc() {
-  sessionStorage.setItem('memory', '');
+export function mc(key) {
+  sessionStorage.setItem(key, '');
 }

@@ -1,12 +1,11 @@
 export class MMinus {
-  constructor(number) {
+  constructor(number, key) {
     this.number = number;
+    this.key = key;
   }
 
   execute() {
-    const key = 'memory';
-
-    this.memoryNumber = Number(sessionStorage.getItem(key));
+    this.memoryNumber = Number(sessionStorage.getItem(this.key));
 
     if (this.memoryNumber === '') {
       return this.number;
@@ -14,7 +13,7 @@ export class MMinus {
 
     this.result = Number(this.number) - Number(this.memoryNumber);
 
-    sessionStorage.setItem(key, this.result);
+    sessionStorage.setItem(this.key, this.result);
 
     return { leftOperand: this.result };
   }
