@@ -1,15 +1,15 @@
 import { MMinus } from './m-';
-import { setSessionStorage } from '../../sessionStorage';
 
 const mMinus = new MMinus(2);
+const key = 'memory';
 
 describe('MMinus command test', () => {
   test('Should execute command with empty storage', () => {
-    setSessionStorage('');
+    sessionStorage.setItem(key, '');
     expect(mMinus.execute()).toStrictEqual({ leftOperand: 2 });
   });
   test('Should execute command with right answer', () => {
-    setSessionStorage(2);
+    sessionStorage.setItem(key, 2);
     expect(mMinus.execute()).toStrictEqual({ leftOperand: 0 });
   });
   test('Should redo command with right answer', () => {

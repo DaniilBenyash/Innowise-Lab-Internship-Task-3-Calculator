@@ -4,7 +4,9 @@ export class MMinus {
   }
 
   execute() {
-    this.memoryNumber = Number(sessionStorage.getItem('memory'));
+    const key = 'memory';
+
+    this.memoryNumber = Number(sessionStorage.getItem(key));
 
     if (this.memoryNumber === '') {
       return this.number;
@@ -12,7 +14,7 @@ export class MMinus {
 
     this.result = Number(this.number) - Number(this.memoryNumber);
 
-    sessionStorage.setItem('memory', this.result);
+    sessionStorage.setItem(key, this.result);
 
     return { leftOperand: this.result };
   }

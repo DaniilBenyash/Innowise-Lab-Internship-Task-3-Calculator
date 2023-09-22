@@ -10,6 +10,6 @@ export class SqrtYCommand {
   }
 
   redo() {
-    return { leftOperand: this.result ** (1 / this.degree) };
+    return { leftOperand: Math.round(this.result ** (1 / this.degree)) };
   }
 }

@@ -1,13 +1,14 @@
 import { SqrtYCommand } from './sqrtYCommand';
 
-const sqrtYCommand = new SqrtYCommand(2, 2);
-
 describe('Sqrt y command test', () => {
   test('Should execute command with right answer', () => {
+    const sqrtYCommand = new SqrtYCommand(2, 2);
     expect(sqrtYCommand.execute()).toStrictEqual({ leftOperand: 4 });
   });
 
   test('Should redo command with right answer', () => {
-    expect(sqrtYCommand.redo()).toStrictEqual({ leftOperand: 2 });
+    const sqrtYCommand = new SqrtYCommand(4, 3);
+    sqrtYCommand.execute();
+    expect(sqrtYCommand.redo()).toStrictEqual({ leftOperand: 4 });
   });
 });

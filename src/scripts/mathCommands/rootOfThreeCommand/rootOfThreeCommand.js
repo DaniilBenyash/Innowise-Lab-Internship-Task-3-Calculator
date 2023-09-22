@@ -9,6 +9,6 @@ export class RootOfThreeCommand {
   }
 
   redo() {
-    return { leftOperand: this.result ** 3 };
+    return { leftOperand: Math.round(this.result ** 3) };
   }
 }

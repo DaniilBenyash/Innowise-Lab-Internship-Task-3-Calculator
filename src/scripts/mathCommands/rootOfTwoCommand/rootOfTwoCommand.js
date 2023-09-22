@@ -9,6 +9,6 @@ export class RootOfTwoCommand {
   }
 
   redo() {
-    return { leftOperand: this.result ** 2 };
+    return { leftOperand: Math.round(this.result ** 2) };
   }
 }
