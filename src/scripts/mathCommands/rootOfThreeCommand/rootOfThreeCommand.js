@@ -1,14 +1,14 @@
-export default class RootOfThreeCommand {
+export class RootOfThreeCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return this.number ** (1 / 3);
+    this.result = this.number ** (1 / 3);
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return this.result ** 3;
+  redo() {
+    return { leftOperand: this.result ** 3 };
   }
 }

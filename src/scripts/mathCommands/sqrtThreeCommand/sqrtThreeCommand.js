@@ -1,14 +1,14 @@
-export default class SqrtThreeCommand {
+export class SqrtThreeCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return this.number ** 3;
+    this.result = this.number ** 3;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return this.result ** (1 / 3);
+  redo() {
+    return { leftOperand: this.result ** (1 / 3) };
   }
 }

@@ -1,14 +1,14 @@
-export default class MS {
+export class MS {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    this.number = sessionStorage.setItem('memory', this.number);
-    return this.number;
+    sessionStorage.setItem('memory', this.number);
+    return { leftOperand: this.number };
   }
 
   redo() {
-    return this.number;
+    return { leftOperand: this.number };
   }
 }

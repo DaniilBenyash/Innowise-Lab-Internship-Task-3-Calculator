@@ -1,26 +1,37 @@
-import compute from '../compute';
-import { operationOperand } from '../calculator';
+import { compute } from '../compute';
+import { operationOperand, leftOperand, rightOperand } from '../calculator';
 
-export default class ChooseOperation {
-  constructor(operation) {
+export class ChooseOperation {
+  constructor(operands, operation) {
+    this.operands = operands;
     this.operation = operation;
   }
 
-  // eslint-disable-next-line consistent-return
-  execute(data) {
-    this.data = data;
-    if (this.data.currentNumber === '') {
-      return this.data.previousNumber === '' ? data : { ...this.data, operation: this.operation };
-    // eslint-disable-next-line no-else-return
-    } else if (!Object.values(data).includes('')) {
-      compute(this.data);
-      operationOperand.innerHTML = this.operation;
-    } else {
-      return { previousNumber: data.currentNumber, operation: this.operation };
+  execute() {
+    const checkRightOperandHasValue = this.operands.rightOperand !== '';
+    const checkLeftOperandHasValue = this.operands.leftOperand !== '';
+    const checkBothOperandsHasValue = !Object.values(this.operands).includes('');
+
+    if (!checkRightOperandHasValue && !checkLeftOperandHasValue) {
+      return this.operands;
     }
+    if (!checkRightOperandHasValue && checkLeftOperandHasValue) {
+      return { ...this.operands, operationOperand: this.operation };
+    }
+
+    if (checkBothOperandsHasValue) {
+      compute(this.operands);
+      return {
+        leftOperand: leftOperand.innerHTML,
+        rightOperand: rightOperand.innerHTML,
+        operationOperand: operationOperand.innerHTML,
+      };
+    }
+
+    return { leftOperand: this.operands.rightOperand, operationOperand: this.operation };
   }
 
   redo() {
-    return this.data;
+    return this.operands;
   }
 }

@@ -1,12 +1,13 @@
-import RootOfThreeCommand from './rootOfThreeCommand';
+import { RootOfThreeCommand } from './rootOfThreeCommand';
 
-// eslint-disable-next-line no-undef
-test('RootOfThreeCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfThreeCommand(27).execute()).toBe(3);
-});
-// eslint-disable-next-line no-undef
-test('RootOfThreeCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfThreeCommand().redo(3)).toBe(27);
+const rootOfThreeCommand = new RootOfThreeCommand(27);
+
+describe('Root of three command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(rootOfThreeCommand.execute()).toStrictEqual({ leftOperand: 3 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(rootOfThreeCommand.redo()).toStrictEqual({ leftOperand: 27 });
+  });
 });

@@ -1,12 +1,13 @@
-import TenXCommand from './tenXCommand';
+import { TenXCommand } from './tenXCommand';
 
-// eslint-disable-next-line no-undef
-test('TenXCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new TenXCommand(2).execute()).toBe(100);
-});
-// eslint-disable-next-line no-undef
-test('TenXCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new TenXCommand(2).redo()).toBe(2);
+const tenXCommand = new TenXCommand(2);
+
+describe('Ten multiply x command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(tenXCommand.execute()).toStrictEqual({ leftOperand: 100 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(tenXCommand.redo()).toStrictEqual({ leftOperand: 2 });
+  });
 });

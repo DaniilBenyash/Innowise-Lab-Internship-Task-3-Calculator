@@ -1,14 +1,15 @@
-export default class MultiplyCommand {
+export class MultiplyCommand {
   constructor(firstNumber, secondNumber) {
     this.firstNumber = firstNumber;
     this.secondNumber = secondNumber;
   }
 
   execute() {
-    return this.firstNumber * this.secondNumber;
+    this.result = this.firstNumber * this.secondNumber;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    return result / this.secondNumber;
+  redo() {
+    return { leftOperand: this.result / this.secondNumber };
   }
 }

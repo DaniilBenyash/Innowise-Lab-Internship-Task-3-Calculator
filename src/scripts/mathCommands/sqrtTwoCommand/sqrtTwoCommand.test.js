@@ -1,12 +1,13 @@
-import SqrtTwoCommand from './sqrtTwoCommand';
+import { SqrtTwoCommand } from './sqrtTwoCommand';
 
-// eslint-disable-next-line no-undef
-test('SqrtTwoCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new SqrtTwoCommand(2).execute()).toBe(4);
-});
-// eslint-disable-next-line no-undef
-test('SqrtTwoCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new SqrtTwoCommand().redo(4)).toBe(2);
+const sqrtTwoCommand = new SqrtTwoCommand(2);
+
+describe('Sqrt two command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(sqrtTwoCommand.execute()).toStrictEqual({ leftOperand: 4 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(sqrtTwoCommand.redo()).toStrictEqual({ leftOperand: 2 });
+  });
 });

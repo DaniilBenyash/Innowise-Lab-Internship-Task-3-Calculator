@@ -1,12 +1,13 @@
-import OneDivideByXCommand from './oneDivideByXCommand';
+import { OneDivideByXCommand } from './oneDivideByXCommand';
 
-// eslint-disable-next-line no-undef
-test('OneDivideByXCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new OneDivideByXCommand(2).execute()).toBe(0.5);
-});
-// eslint-disable-next-line no-undef
-test('OneDivideByXCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new OneDivideByXCommand().redo(0.5)).toBe(2);
+const oneDivideByXCommand = new OneDivideByXCommand(2);
+
+describe('One divide by x command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(oneDivideByXCommand.execute()).toStrictEqual({ leftOperand: 0.5 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(oneDivideByXCommand.redo()).toStrictEqual({ leftOperand: 2 });
+  });
 });

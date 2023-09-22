@@ -1,30 +1,54 @@
-import compute from '../compute';
-import calculator from '../calculator';
+import { compute } from '../compute';
+import { calculator, leftOperand } from '../calculator';
 
-export default class HighOperation {
-  constructor(operation) {
+export class HighOperation {
+  constructor(operands, operation) {
+    this.operands = operands;
     this.operation = operation;
   }
 
-  // eslint-disable-next-line consistent-return
-  execute(data) {
-    this.data = { ...data, operation: this.operation };
-    if (this.operation === 'mr') {
-      compute({ operation: this.operation });
-    } else if (this.data.currentNumber === '' && this.data.previousNumber === '') {
-      return data;
-    } else if (this.data.currentNumber !== '' && this.data.previousNumber === '') {
-      compute({ previousNumber: data.currentNumber, operation: this.operation });
-    } else if (this.data.previousNumber !== '' && this.data.currentNumber === '') {
-      compute({ ...data, operation: this.operation });
-    } else if (!Object.values(data).includes('')) {
-      compute(data);
+  execute() {
+    const checkRightOperandHasValue = this.operands.rightOperand !== '';
+    const checkLeftOperandHasValue = this.operands.leftOperand !== '';
+    const checkBothOperandsHasValue = !Object.values(this.operands).includes('');
+
+    if (!checkRightOperandHasValue && !checkLeftOperandHasValue) {
+      return this.operands;
+    }
+
+    if (checkRightOperandHasValue && !checkLeftOperandHasValue) {
+      compute({ leftOperand: this.operands.rightOperand, operationOperand: this.operation });
+      return {
+        leftOperand: leftOperand.innerHTML,
+        rightOperand: '',
+        operationOperand: '',
+      };
+    }
+
+    if (checkLeftOperandHasValue && !checkRightOperandHasValue) {
+      compute({ ...this.operands, operationOperand: this.operation });
+      return {
+        leftOperand: leftOperand.innerHTML,
+        rightOperand: '',
+        operationOperand: '',
+      };
+    }
+
+    if (checkBothOperandsHasValue) {
+      compute(this.operands);
       calculator.setCommand(new HighOperation(this.operation));
       calculator.executeCommand();
+      return {
+        leftOperand: leftOperand.innerHTML,
+        rightOperand: '',
+        operationOperand: '',
+      };
     }
+
+    return this.operands;
   }
 
   redo() {
-    return this.data;
+    return this.operands;
   }
 }

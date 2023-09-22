@@ -1,13 +1,14 @@
-export default class TenXCommand {
+export class TenXCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return 10 ** this.number;
+    this.result = 10 ** this.number;
+    return { leftOperand: this.result };
   }
 
   redo() {
-    return this.number;
+    return { leftOperand: Math.log(this.result) / Math.log(10) };
   }
 }

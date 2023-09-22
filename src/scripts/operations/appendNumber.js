@@ -1,18 +1,32 @@
-export default class AppendNumber {
-  constructor(number) {
+export class AppendNumber {
+  constructor(operands, number) {
+    this.operands = operands;
     this.number = number;
   }
 
-  execute(data) {
-    this.data = data;
+  execute() {
+    const changeZeroOnAnotherNumber = this.operands.rightOperand === '0' && this.number !== '0' && this.number !== '.';
+    const checkValueToHasSingleZero = this.operands.rightOperand === '0' && this.number === '0';
+    const checkValueToHasSingleDot = this.number === '.' && this.operands.rightOperand.includes('.');
+    const checkOperandsHasOperation = this.operands.leftOperand !== '' && this.operands.operationOperand === '';
 
-    if (data.currentNumber === '0' && this.number !== '0' && this.number !== '.') return { currentNumber: this.number };
-    if (data.currentNumber === '0' && this.number === '0') return this.data;
+    if (changeZeroOnAnotherNumber) {
+      return { rightOperand: this.number };
+    }
+    if (checkValueToHasSingleZero) {
+      return this.operands;
+    }
+    if (checkValueToHasSingleDot) {
+      return this.operands;
+    }
+    if (checkOperandsHasOperation) {
+      return this.operands;
+    }
 
-    return this.number === '.' && data.currentNumber.includes('.') ? data : { ...data, currentNumber: data.currentNumber + this.number };
+    return { ...this.operands, rightOperand: this.operands.rightOperand + this.number };
   }
 
   redo() {
-    return this.data;
+    return this.operands;
   }
 }

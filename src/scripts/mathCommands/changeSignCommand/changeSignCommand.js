@@ -1,14 +1,14 @@
-export default class ChangeSignCommand {
+export class ChangeSignCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return -this.number;
+    this.result = -this.number;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return -result;
+  redo() {
+    return { leftOperand: -this.result };
   }
 }

@@ -1,12 +1,13 @@
-import MultiplyCommand from './multiplyCommand';
+import { MultiplyCommand } from './multiplyCommand';
 
-// eslint-disable-next-line no-undef
-test('MultiplyCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new MultiplyCommand(4, 2).execute()).toBe(8);
-});
-// eslint-disable-next-line no-undef
-test('MultiplyCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new MultiplyCommand(4, 2).redo(8)).toBe(4);
+const multiplyCommand = new MultiplyCommand(4, 2);
+
+describe('Multiply command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(multiplyCommand.execute()).toStrictEqual({ leftOperand: 8 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(multiplyCommand.redo()).toStrictEqual({ leftOperand: 4 });
+  });
 });

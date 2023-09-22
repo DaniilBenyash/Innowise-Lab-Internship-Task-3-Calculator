@@ -1,14 +1,15 @@
-export default class RootOfYCommand {
+export class RootOfYCommand {
   constructor(number, degree) {
     this.number = number;
     this.degree = degree;
   }
 
   execute() {
-    return this.number ** (1 / this.degree);
+    this.result = this.number ** (1 / this.degree);
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    return result ** this.degree;
+  redo() {
+    return { leftOperand: this.result ** this.degree };
   }
 }

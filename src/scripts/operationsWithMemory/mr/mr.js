@@ -1,10 +1,13 @@
-export default class MR {
+export class MR {
   execute() {
     this.number = sessionStorage.getItem('memory');
-    return this.number === '' ? {} : Number(this.number);
+    if (this.number === '') {
+      return {};
+    }
+    return { leftOperand: this.number };
   }
 
   redo() {
-    return this.number;
+    return { leftOperand: this.number };
   }
 }

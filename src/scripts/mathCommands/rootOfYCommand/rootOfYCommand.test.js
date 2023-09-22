@@ -1,12 +1,13 @@
-import RootOfYCommand from './rootOfYCommand';
+import { RootOfYCommand } from './rootOfYCommand';
 
-// eslint-disable-next-line no-undef
-test('RootOfYCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfYCommand(9, 2).execute()).toBe(3);
-});
-// eslint-disable-next-line no-undef
-test('RootOfYCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfYCommand(9, 2).redo(3)).toBe(9);
+const rootOfYCommand = new RootOfYCommand(9, 2);
+
+describe('Root of y command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(rootOfYCommand.execute()).toStrictEqual({ leftOperand: 3 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(rootOfYCommand.redo()).toStrictEqual({ leftOperand: 9 });
+  });
 });

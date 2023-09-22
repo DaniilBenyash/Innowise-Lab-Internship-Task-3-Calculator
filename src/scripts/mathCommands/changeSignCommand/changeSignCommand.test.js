@@ -1,12 +1,13 @@
-import ChangeSignCommand from './changeSignCommand';
+import { ChangeSignCommand } from './changeSignCommand';
 
-// eslint-disable-next-line no-undef
-test('ChangeSignCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new ChangeSignCommand(2).execute()).toBe(-2);
-});
-// eslint-disable-next-line no-undef
-test('ChangeSignCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new ChangeSignCommand().redo(-2)).toBe(2);
+const changeSignCommand = new ChangeSignCommand(2);
+
+describe('Change sign command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(changeSignCommand.execute()).toStrictEqual({ leftOperand: -2 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(changeSignCommand.redo()).toStrictEqual({ leftOperand: 2 });
+  });
 });

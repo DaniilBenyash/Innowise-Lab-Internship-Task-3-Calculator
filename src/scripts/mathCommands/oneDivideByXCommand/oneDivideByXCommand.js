@@ -1,14 +1,14 @@
-export default class OneDivideByXCommand {
+export class OneDivideByXCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return this.number === 0 ? 0 : 1 / this.number;
+    this.result = this.number === 0 ? 0 : 1 / this.number;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return 1 / result;
+  redo() {
+    return { leftOperand: 1 / this.result };
   }
 }

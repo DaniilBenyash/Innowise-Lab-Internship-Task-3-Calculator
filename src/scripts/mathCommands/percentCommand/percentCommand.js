@@ -1,14 +1,14 @@
-export default class PercentCommand {
+export class PercentCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return this.number / 100;
+    this.result = this.number / 100;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return this.result * 100;
+  redo() {
+    return { leftOperand: this.result * 100 };
   }
 }

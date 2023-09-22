@@ -1,4 +1,4 @@
-export default class FactorialCommand {
+export class FactorialCommand {
   constructor(number) {
     this.number = number;
     this.factorial();
@@ -6,7 +6,8 @@ export default class FactorialCommand {
   }
 
   execute() {
-    return this.factorial(this.number);
+    this.result = this.factorial(this.number);
+    return { leftOperand: this.result };
   }
 
   factorial(number) {
@@ -23,8 +24,7 @@ export default class FactorialCommand {
     return number;
   }
 
-  redo(result) {
-    this.result = result;
-    return this.backFactorial(this.result);
+  redo() {
+    return { leftOperand: this.backFactorial(this.result) };
   }
 }

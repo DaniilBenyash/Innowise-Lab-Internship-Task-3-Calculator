@@ -1,5 +1,3 @@
-const switcherTheme = document.getElementById('calculator__button-theme');
-
 const THEME = {
   DARK: 'dark',
   LIGHT: 'light',
@@ -16,17 +14,12 @@ function switchTheme(theme) {
 function checkTheme() {
   const currentTheme = localStorage.getItem('theme');
 
-  // eslint-disable-next-line no-unused-expressions
-  currentTheme === THEME.LIGHT || currentTheme === null
-    ? switchTheme(THEME.LIGHT) : switchTheme(THEME.DARK);
+  switchTheme(currentTheme === THEME.LIGHT || currentTheme === null ? THEME.LIGHT : THEME.DARK);
 }
 checkTheme();
 
-function setTheme() {
+export function setTheme() {
   const currentTheme = localStorage.getItem('theme');
 
-  // eslint-disable-next-line no-unused-expressions
-  currentTheme === THEME.LIGHT ? switchTheme(THEME.DARK) : switchTheme(THEME.LIGHT);
+  switchTheme(currentTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT);
 }
-
-switcherTheme.addEventListener('click', setTheme);

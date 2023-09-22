@@ -1,12 +1,13 @@
-import AddCommand from './addCommand';
+import { AddCommand } from './addCommand';
 
-// eslint-disable-next-line no-undef
-test('AddCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new AddCommand(1, 2).execute()).toBe(3);
-});
-// eslint-disable-next-line no-undef
-test('AddCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new AddCommand(1, 2).redo(3)).toBe(1);
+const addCommand = new AddCommand(1, 2);
+
+describe('Add command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(addCommand.execute()).toStrictEqual({ leftOperand: 3 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(addCommand.redo()).toStrictEqual({ leftOperand: 1 });
+  });
 });

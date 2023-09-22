@@ -1,14 +1,14 @@
-export default class RootOfTwoCommand {
+export class RootOfTwoCommand {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
-    return this.number ** (1 / 2);
+    this.result = this.number ** (1 / 2);
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    this.result = result;
-    return this.result ** 2;
+  redo() {
+    return { leftOperand: this.result ** 2 };
   }
 }

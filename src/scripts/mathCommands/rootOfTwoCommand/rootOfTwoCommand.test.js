@@ -1,12 +1,13 @@
-import RootOfTwoCommand from './rootOfTwoCommand';
+import { RootOfTwoCommand } from './rootOfTwoCommand';
 
-// eslint-disable-next-line no-undef
-test('RootOfTwoCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfTwoCommand(9).execute()).toBe(3);
-});
-// eslint-disable-next-line no-undef
-test('RootOfTwoCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new RootOfTwoCommand().redo(3)).toBe(9);
+const rootOfTwoCommand = new RootOfTwoCommand(9);
+
+describe('Root of two command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(rootOfTwoCommand.execute()).toStrictEqual({ leftOperand: 3 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(rootOfTwoCommand.redo()).toStrictEqual({ leftOperand: 9 });
+  });
 });

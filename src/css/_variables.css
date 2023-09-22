@@ -1,12 +1,35 @@
 [data-theme="light"] {
-    --color-1: #0A2647;
-    --color-2: #144272;
-    --color-3: #205295;
-    --color-4: #2C74B3;
+    --font-color: #EEEEEE;
+    --font-color-2: rgb(238, 238, 238, 0.6);
+    --output-and-left-section-color: #0A2647;
+    --left-section-hover-color: rgb(40, 46, 56, 0.7);
+    --left-section-active-color: rgb(40, 46, 56, 0.3);
+    --right-section-color: #144272;
+    --right-section-hover-color: rgb(57, 62, 70, 0.7);
+    --right-section-active-color: rgb(57, 62, 70, 0.3);
+    --orange-button-color: #fa991c;
+    --orange-button-hover-color: rgb(250, 153, 28, 0.7);
+    --orange-button-active-color: rgb(250, 153, 28, 0.3);
+    --button-color: #205295;
+    --button-hover-color: rgba(162, 164, 167, 0.7);
+    --button-active-color: rgba(215, 217, 219, 0.3);
+    --bg-color: #2C74B3;
 }
 [data-theme="dark"] {
-    --color-1: #2C74B3;
-    --color-2: #205295;
-    --color-3: #144272;
-    --color-4: #0A2647;
+    --font-color: #EEEEEE;
+    --font-color-2: rgb(238, 238, 238, 0.6);
+    --font-color: #EEEEEE;
+    --output-and-left-section-color: #2C74B3;
+    --left-section-hover-color: rgb(40, 46, 56, 0.7);
+    --left-section-active-color: rgb(40, 46, 56, 0.3);
+    --right-section-color: #205295;
+    --right-section-hover-color: rgb(57, 62, 70, 0.7);
+    --right-section-active-color: rgb(57, 62, 70, 0.3);
+    --orange-button-color: #fa991c;
+    --orange-button-hover-color: rgb(250, 153, 28, 0.7);
+    --orange-button-active-color: rgb(250, 153, 28, 0.3);
+    --button-color: #144272;
+    --button-hover-color: rgba(162, 164, 167, 0.7);
+    --button-active-color: rgba(215, 217, 219, 0.3);
+    --bg-color: #0A2647;
 }

@@ -1,14 +1,15 @@
-export default class DivideCommand {
+export class DivideCommand {
   constructor(firstNumber, secondNumber) {
     this.firstNumber = firstNumber;
     this.secondNumber = secondNumber;
   }
 
   execute() {
-    return this.secondNumber === 0 ? 0 : this.firstNumber / this.secondNumber;
+    this.result = this.secondNumber === 0 ? 0 : this.firstNumber / this.secondNumber;
+    return { leftOperand: this.result };
   }
 
-  redo(result) {
-    return result * this.secondNumber;
+  redo() {
+    return { leftOperand: this.result * this.secondNumber };
   }
 }

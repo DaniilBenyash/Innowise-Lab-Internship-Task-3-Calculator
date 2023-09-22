@@ -1,12 +1,13 @@
-import FactorialCommand from './factorialCommand';
+import { FactorialCommand } from './factorialCommand';
 
-// eslint-disable-next-line no-undef
-test('FactorialCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new FactorialCommand(5).execute()).toBe(120);
-});
-// eslint-disable-next-line no-undef
-test('FactorialCommand', () => {
-  // eslint-disable-next-line no-undef
-  expect(new FactorialCommand().redo(120)).toBe(5);
+const factorialCommand = new FactorialCommand(5);
+
+describe('Factorial command test', () => {
+  test('Should execute command with right answer', () => {
+    expect(factorialCommand.execute()).toStrictEqual({ leftOperand: 120 });
+  });
+
+  test('Should redo command with right answer', () => {
+    expect(factorialCommand.redo()).toStrictEqual({ leftOperand: 5 });
+  });
 });

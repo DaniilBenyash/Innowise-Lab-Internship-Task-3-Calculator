@@ -1,14 +1,23 @@
-export default class MMinus {
+export class MMinus {
   constructor(number) {
     this.number = number;
   }
 
   execute() {
     this.memoryNumber = Number(sessionStorage.getItem('memory'));
-    return this.number - this.memoryNumber;
+
+    if (this.memoryNumber === '') {
+      return this.number;
+    }
+
+    this.result = Number(this.number) - Number(this.memoryNumber);
+
+    sessionStorage.setItem('memory', this.result);
+
+    return { leftOperand: this.result };
   }
 
   redo() {
-    return this.number;
+    return { leftOperand: this.number };
   }
 }

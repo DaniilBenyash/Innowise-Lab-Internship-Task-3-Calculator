@@ -1,11 +1,14 @@
-export default class AllClear {
-  execute() {
-    this.a = {};
-    return this.a;
+export class AllClear {
+  constructor(operands) {
+    this.operands = operands;
   }
 
-  // eslint-disable-next-line class-methods-use-this
+  execute() {
+    this.emptyOperands = {};
+    return this.emptyOperands;
+  }
+
   redo() {
-    return {};
+    return this.operands;
   }
 }
